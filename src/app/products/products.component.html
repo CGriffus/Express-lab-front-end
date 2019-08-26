@@ -1,6 +1,11 @@
-<div *ngFor="let item of cart">
-  <p>Name: {{ item.name }}</p>
-  <p>Price: {{ item.price }}</p>
-  <p>Catagory: {{ item.catagory }}</p>
-  <p>ID: {{ item.id }}</p>
-</div>
+<main>
+  <div class="item" *ngFor="let item of cart">
+    <p><span>Name:</span> {{ item.name }}</p>
+    <p><span>Price:</span> {{ item.price }}</p>
+    <p><span>Category:</span> {{ item.category }}</p>
+    <p><span>ID:</span> {{ item.id }}</p>
+    <i class="fas fa-times-circle"></i>
+  </div>
+</main>
+
+<button>Add an Item</button>

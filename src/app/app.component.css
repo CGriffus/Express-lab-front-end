@@ -1,0 +1,16 @@
+app-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: rgb(24, 30, 26);
+}
+
+h1 {
+  text-align: center;
+  color: rgb(170, 170, 170);
+}
