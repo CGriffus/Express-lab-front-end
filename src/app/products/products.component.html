@@ -1,11 +1,40 @@
 <main>
   <div class="item" *ngFor="let item of cart">
-    <p><span>Name:</span> {{ item.name }}</p>
+    <p><span>Product:</span> {{ item.product }}</p>
     <p><span>Price:</span> {{ item.price }}</p>
-    <p><span>Category:</span> {{ item.category }}</p>
-    <p><span>ID:</span> {{ item.id }}</p>
-    <i class="fas fa-times-circle"></i>
+    <p><span>Quantity:</span> {{ item.quantity }}</p>
+    <i (click)="deleteItem(item.id)" class="fas fa-times-circle"></i>
+    <i
+      (click)="[setItemToEdit(item), toggleUpdateForm()]"
+      class="fas fa-edit"
+    ></i>
   </div>
 </main>
 
-<button>Add an Item</button>
+<button (click)="toggleAddForm()">Add an Item</button>
+
+<form
+  *ngIf="this.showAddForm"
+  #addForm="ngForm"
+  (ngSubmit)="addNewItem(addForm)"
+>
+  <h2>Add a New Item</h2>
+  <label for="product">Product</label>
+  <input type="text" name="product" ngModel placeholder="Product" />
+  <label for="price">Price</label>
+  <input type="text" name="price" ngModel placeholder="Price" />
+  <label for="quantity">Quantity</label>
+  <input type="text" name="quantity" ngModel placeholder="Quantity" />
+  <button class="formBtn">Add</button>
+</form>
+
+<form
+  *ngIf="this.showUpdateForm"
+  #updateForm="ngForm"
+  (ngSubmit)="updateItem(updateForm, itemToUpdate.id)"
+>
+  <h2>Update Quantity</h2>
+  <label for="quantity">Quantity</label>
+  <input type="text" name="quantity" [ngModel]="itemToUpdate.quantity" />
+  <button class="formBtn">Update</button>
+</form>

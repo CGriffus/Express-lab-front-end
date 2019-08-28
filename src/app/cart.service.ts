@@ -11,4 +11,16 @@ export class CartService {
   getAllItems(): Observable<any> {
     return this.http.get("http://localhost:5000/cart-items");
   }
+
+  postItems(newItem: object): Observable<any> {
+    return this.http.post("http://localhost:5000/cart-items", newItem);
+  }
+
+  putItems(item: number, id: number): Observable<any> {
+    return this.http.put(`http://localhost:5000/cart-items/${id}`, item);
+  }
+
+  deleteItems(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:5000/cart-items/${id}`);
+  }
 }
