@@ -21,10 +21,14 @@ p {
   margin: 20px 0;
 }
 
-.fas {
+.fa-times-circle {
   position: absolute;
   top: -3px;
   right: -3px;
+}
+
+.fa-edit {
+  margin-bottom: 10px;
 }
 
 button {
