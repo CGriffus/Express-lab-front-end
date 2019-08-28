@@ -10,6 +10,7 @@ main {
   height: auto;
   width: 300px;
   margin: 10px;
+  border-radius: 10px;
   position: relative;
 }
 
@@ -23,8 +24,8 @@ p {
 
 .fa-times-circle {
   position: absolute;
-  top: -3px;
-  right: -3px;
+  top: 0;
+  right: 0;
 }
 
 .fa-edit {
@@ -36,6 +37,7 @@ button {
   background: rgb(175, 216, 181);
   padding: 10px;
   margin: 30px;
+  border-radius: 10px;
   font-weight: bold;
 }
 
@@ -48,14 +50,26 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid rgb(24, 30, 26);
+  background: rgb(255, 251, 163);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 input {
   padding: 10px;
   margin: 10px;
   width: 300px;
+  border-radius: 10px;
+  background: rgb(170, 170, 170);
+  border: 1px solid rgb(24, 30, 26);
 }
 
-#formAddBtn {
+input::placeholder {
+  color: rgb(24, 30, 26);
+}
+
+.formBtn {
   width: 300px;
+  margin: 10px 0;
 }

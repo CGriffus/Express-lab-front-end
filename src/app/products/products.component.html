@@ -11,17 +11,21 @@
   </div>
 </main>
 
-<button>Add an Item</button>
-<!-- (click)="toggleAddForm()" -->
-<!-- *ngIf="this.showAddForm" -->
-<form #addForm="ngForm" (ngSubmit)="addNewItem(addForm)">
+<button (click)="toggleAddForm()">Add an Item</button>
+
+<form
+  *ngIf="this.showAddForm"
+  #addForm="ngForm"
+  (ngSubmit)="addNewItem(addForm)"
+>
+  <h2>Add a New Item</h2>
   <label for="product">Product</label>
   <input type="text" name="product" ngModel placeholder="Product" />
   <label for="price">Price</label>
   <input type="text" name="price" ngModel placeholder="Price" />
   <label for="quantity">Quantity</label>
   <input type="text" name="quantity" ngModel placeholder="Quantity" />
-  <button id="formAddBtn">Add</button>
+  <button class="formBtn">Add</button>
 </form>
 
 <form
@@ -29,7 +33,8 @@
   #updateForm="ngForm"
   (ngSubmit)="updateItem(updateForm, itemToUpdate.id)"
 >
+  <h2>Update Quantity</h2>
   <label for="quantity">Quantity</label>
   <input type="text" name="quantity" [ngModel]="itemToUpdate.quantity" />
-  <button>Update</button>
+  <button class="formBtn">Update</button>
 </form>
