@@ -10,7 +10,8 @@ import { NgForm } from "@angular/forms";
 export class ProductsComponent implements OnInit {
   cart: any[];
   showAddForm: boolean = false;
-  itemToEdit: object;
+  showUpdateForm: boolean = false;
+  itemToUpdate: object;
 
   constructor(private cartService: CartService) {}
 
@@ -24,24 +25,32 @@ export class ProductsComponent implements OnInit {
     this.showAddForm = !this.showAddForm;
   }
 
-  setItemToEdit(item: object): void {
-    this.itemToEdit = item;
+  toggleUpdateForm(): void {
+    this.showUpdateForm = !this.showUpdateForm;
+  }
+
+  setItemToEdit(item): void {
+    this.itemToUpdate = item;
   }
 
   addNewItem(form: NgForm): void {
     this.cartService.postItems(form.value).subscribe(response => {
       this.cart = response;
+      form.reset();
     });
+    this.toggleAddForm();
   }
 
   deleteItem(id: number): void {
-    console.log(id);
     this.cartService.deleteItems(id).subscribe(response => {
       this.cart = response;
     });
   }
 
-  updateItem(form: NgForm): void {
-    console.log(form.value);
+  updateItem(form: NgForm, id: number): void {
+    this.cartService.putItems(form.value, id).subscribe(response => {
+      this.cart = response;
+    });
+    this.toggleUpdateForm();
   }
 }
